@@ -119,8 +119,7 @@ def resource_req(reques):
         for i in resource:
             final_list.append(i)
         return final_list
-    #resource is a dictionary with format {ip: occurences}  
-    #this function returns a list of top 10 resource
+   
     
     for i in range(10):
         max1=0
@@ -133,7 +132,7 @@ def resource_req(reques):
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 filepath="/var/log/apache2/access.log"
-data = open('access.log', "r").readlines()
+data = open(filepath, "r").readlines()
 reques=list()
 for i in data:
     reques.append(i.split(' '))
@@ -143,7 +142,7 @@ for i in data:
 #request stored at[5]
 #status code stored at [8]
 #bytes served [9]
-#module reqyuested at [6][7]
+#resource reqyuested at [6][7]
 
 users=usercount(reques)
 usernumber=total_requests(users)
